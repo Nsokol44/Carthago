@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content-section">
+  <div class="media">
+    <img class="rounded-circle account-img"  src="{{ profile.profile_pic.url }}" alt="">
+    <div class="media-body">
+      <h2 class="account-heading">{{ user.username }}</h2>
+      <p class="text-secondary">{{ user.email }}</p>
+    </div>
+    <!-- add more details to profile such as user reviews, beaches visited, etc -->
+  </div>
+
+{% endblock %}
+</div>
