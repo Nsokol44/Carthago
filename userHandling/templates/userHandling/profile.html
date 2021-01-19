@@ -3,15 +3,17 @@
 
 {% block content %}
 
-<div class="content-section">
+<div class="card mx-auto">
+
+<div class="content-section my-3 mx-3">
   <div class="media">
-    <img class="rounded-circle account-img"  src="{{ profile.profile_pic.url }}" alt="">
+    <img class="rounded-circle account-img"  src="{{ user.userprofile.image.url }}" alt="Profile Picture" height=150px width=150px>
     <div class="media-body">
       <h2 class="account-heading">{{ user.username }}</h2>
       <p class="text-secondary">{{ user.email }}</p>
     </div>
     <!-- add more details to profile such as user reviews, beaches visited, etc -->
   </div>
-
+</div>
 {% endblock %}
 </div>

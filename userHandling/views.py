@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from userHandling.forms import UserForm, UserProfileInfoForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from carthagoHome import urls
-
+from userHandling.forms import UserForm, UserProfileInfoForm
+from userHandling.models import UserProfile
 
 # Create your views here.
 def index(request):
@@ -35,8 +35,8 @@ def register(request):
             profile = profile_form.save(commit=False)
             profile.user = user
 
-            if 'profile_pic' in request.FILES:
-                profile.profile_pic = request.FILES['profile_pic']
+            if 'image' in request.FILES:
+                profile.image = request.FILES['image']
 
             profile.save()
 
@@ -66,7 +66,7 @@ def user_login(request):
             if user.is_active:
                 # If user has a successful login then we can forward them to another page.
                 login(request, user)
-                return HttpResponseRedirect(reverse('beaches-home'))
+                return HttpResponseRedirect(reverse('carthago-home'))
 
             else:
                 return HttpResponse("Account not found. Please sign up.")

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from userHandling.models import UserProfileInfo
+from userHandling.models import UserProfile
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -11,5 +11,5 @@ class UserForm(forms.ModelForm):
 
 class UserProfileInfoForm(forms.ModelForm):
     class Meta():
-        model = UserProfileInfo
-        fields = ('profile_pic',)
+        model = UserProfile
+        fields = ('image',)
